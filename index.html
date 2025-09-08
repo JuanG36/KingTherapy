@@ -11,25 +11,25 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">AppFisio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#cuestionario">Cuestionario</a></li>
-          <li class="nav-item"><a class="nav-link" href="#biblioteca">Biblioteca</a></li>
-        </ul>
-      </div>
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">AppFisio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#cuestionario">Cuestionario</a></li>
+        <li class="nav-item"><a class="nav-link" href="#biblioteca">Biblioteca</a></li>
+        <li class="nav-item"><a class="nav-link" href="#casos-clinicos">Casos Clínicos</a></li>
+      </ul>
     </div>
-  </nav>
-
+  </div>
+</nav>
   <!-- Hero Section -->
   <header class="bg-light text-dark py-5 text-center">
     <div class="container">
-      <h1 class="fw-bold">Bienvenido a AppFisio</h1>
-      <p class="lead">Tu plataforma interactiva para aprender y repasar fisioterapia.</p>
+      <h1 class="fw-bold">Bienvenido a KingFisio</h1>
+      <p class="lead">Una plataforma por y para estudiantes para aprender y repasar fisioterapia.</p>
       <a href="#cuestionario" class="btn btn-primary btn-lg mt-3">Comenzar ahora</a>
     </div>
   </header>
@@ -54,7 +54,60 @@
 <!-- Enlazar JS -->
 <script src="js/quiz.js"></script>
 
+<section id="casos-clinicos" class="py-5">
+  <div class="container">
+    <h2 class="mb-4 text-center">👨‍⚕️ Casos Clínicos</h2>
+    <p class="text-center text-muted mb-5">Aplica tus conocimientos a situaciones reales y desarrolla tu razonamiento clínico.</p>
 
+    <div class="accordion" id="accordionCasosClinicos">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <strong>Caso 1:</strong> Futbolista con dolor agudo en el tobillo
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionCasosClinicos">
+          <div class="accordion-body">
+            <p><strong>Presentación:</strong> Paciente masculino de 24 años, futbolista amateur, acude a consulta refiriendo un traumatismo en el tobillo derecho hace 48 horas durante un partido. Describe un mecanismo de inversión forzada del pie, seguido de un dolor agudo e intenso en la cara lateral del tobillo e incapacidad para continuar jugando.</p>
+            <hr>
+            <h5><strong>Evaluación</strong></h5>
+            <ul>
+              <li><strong>Inspección:</strong> Edema ++ y equimosis (moretón) en la región del maléolo peroneo.</li>
+              <li><strong>Palpación:</strong> Dolor exquisito a la palpación sobre el ligamento peroneoastragalino anterior (LPAA).</li>
+              <li><strong>Pruebas funcionales:</strong> Test de cajón anterior de tobillo positivo. Bostezo articular negativo.</li>
+            </ul>
+            <hr>
+            <h5><strong>Diagnóstico Fisioterapéutico</strong></h5>
+            <p>Esguince de tobillo de grado II, con afectación principal del LPAA.</p>
+            <hr>
+            <h5><strong>Plan de Tratamiento (Fase Aguda)</strong></h5>
+            <ol>
+              <li><strong>RICE:</strong> Reposo, Hielo (Crioterapia 15 min c/3-4h), Compresión (vendaje funcional) y Elevación.</li>
+              <li><strong>Movilizaciones pasivas suaves:</strong> Para mantener el rango articular sin dolor.</li>
+              <li><strong>Isométricos:</strong> Contracciones sin movimiento para evitar la atrofia muscular.</li>
+              <li><strong>Educación al paciente:</strong> Explicar las fases de la recuperación y la importancia del reposo relativo.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Caso 2:</strong> Oficinista con dolor lumbar
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionCasosClinicos">
+          <div class="accordion-body">
+            <p><strong>Presentación:</strong> Paciente femenino de 35 años, trabaja 8 horas diarias sentada frente a una computadora. Refiere dolor lumbar de inicio insidioso desde hace 3 semanas...</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- Biblioteca -->
   <section id="biblioteca" class="bg-light py-5">
   <div class="container">

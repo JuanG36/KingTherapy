@@ -1,7 +1,22 @@
-// ======================
-// Preguntas del cuestionario
-// ======================
+// ===================================================================
+//  SCRIPT COMPLETO Y MEJORADO PARA EL CUESTIONARIO DE APPFISIO
+// ===================================================================
+
 const preguntas = {
+  basico: [
+    {
+      pregunta: "¿Cuál es el hueso más largo del cuerpo humano?",
+      opciones: ["Tibia", "Fémur", "Húmero", "Peroné"],
+      respuesta: 1,
+      explicacion: "El fémur, ubicado en el muslo, es el hueso más largo y fuerte del cuerpo humano."
+    },
+    {
+      pregunta: "¿Qué músculo es el principal responsable de la flexión del codo?",
+      opciones: ["Tríceps braquial", "Deltoides", "Bíceps braquial", "Pectoral mayor"],
+      respuesta: 2,
+      explicacion: "El bíceps braquial, ubicado en la parte anterior del brazo, es el principal motor de la flexión del codo."
+    }
+  ],
   intermedio: [
     {
       pregunta: "¿Qué músculo se conoce como el principal estabilizador dinámico de la rodilla?",
@@ -10,22 +25,12 @@ const preguntas = {
     },
     {
       pregunta: "El test de Lachman evalúa principalmente:",
-      opciones: [
-        "Ligamento cruzado anterior",
-        "Ligamento cruzado posterior",
-        "Ligamento colateral medial",
-        "Ligamento colateral lateral"
-      ],
+      opciones: ["Ligamento cruzado anterior", "Ligamento cruzado posterior", "Ligamento colateral medial", "Ligamento colateral lateral"],
       respuesta: 0
     },
     {
       pregunta: "Un paciente con esguince de tobillo grado II presenta:",
-      opciones: [
-        "Dolor leve sin inestabilidad",
-        "Dolor moderado con cierto edema e inestabilidad parcial",
-        "Rotura completa del ligamento",
-        "Luxación de tobillo"
-      ],
+      opciones: ["Dolor leve sin inestabilidad", "Dolor moderado con cierto edema e inestabilidad parcial", "Rotura completa del ligamento", "Luxación de tobillo"],
       respuesta: 1
     },
     {
@@ -35,12 +40,7 @@ const preguntas = {
     },
     {
       pregunta: "La maniobra de Spurling se utiliza para detectar:",
-      opciones: [
-        "Hernia de disco lumbar",
-        "Radiculopatía cervical",
-        "Síndrome del túnel carpiano",
-        "Escoliosis"
-      ],
+      opciones: ["Hernia de disco lumbar", "Radiculopatía cervical", "Síndrome del túnel carpiano", "Escoliosis"],
       respuesta: 1
     },
     {
@@ -50,12 +50,7 @@ const preguntas = {
     },
     {
       pregunta: "El ligamento más frecuentemente lesionado en un esguince de tobillo es:",
-      opciones: [
-        "Deltoideo",
-        "Peroneoastragalino anterior",
-        "Calcaneoperoneo",
-        "Peroneoastragalino posterior"
-      ],
+      opciones: ["Deltoideo", "Peroneoastragalino anterior", "Calcaneoperoneo", "Peroneoastragalino posterior"],
       respuesta: 1
     },
     {
@@ -75,12 +70,7 @@ const preguntas = {
     },
     {
       pregunta: "La escoliosis estructural se caracteriza por:",
-      opciones: [
-        "Desviación lateral que corrige con inclinación",
-        "Curvatura fija con rotación vertebral",
-        "Dolor lumbar sin deformidad",
-        "Aumento de la lordosis lumbar"
-      ],
+      opciones: ["Desviación lateral que corrige con inclinación", "Curvatura fija con rotación vertebral", "Dolor lumbar sin deformidad", "Aumento de la lordosis lumbar"],
       respuesta: 1
     },
     {
@@ -90,12 +80,7 @@ const preguntas = {
     },
     {
       pregunta: "La técnica de Maitland es un ejemplo de:",
-      opciones: [
-        "Movilización articular",
-        "Estiramiento estático",
-        "Electroterapia",
-        "Punción seca"
-      ],
+      opciones: ["Movilización articular", "Estiramiento estático", "Electroterapia", "Punción seca"],
       respuesta: 0
     },
     {
@@ -110,12 +95,7 @@ const preguntas = {
     },
     {
       pregunta: "El test de Phalen evalúa:",
-      opciones: [
-        "Radiculopatía cervical",
-        "Síndrome del túnel carpiano",
-        "Epicondilitis lateral",
-        "Inestabilidad de muñeca"
-      ],
+      opciones: ["Radiculopatía cervical", "Síndrome del túnel carpiano", "Epicondilitis lateral", "Inestabilidad de muñeca"],
       respuesta: 1
     },
     {
@@ -130,35 +110,19 @@ const preguntas = {
     },
     {
       pregunta: "El test de Trendelenburg evalúa:",
-      opciones: [
-        "Fuerza del glúteo medio",
-        "Estabilidad del ligamento cruzado",
-        "Movilidad lumbar",
-        "Integridad meniscal"
-      ],
+      opciones: ["Fuerza del glúteo medio", "Estabilidad del ligamento cruzado", "Movilidad lumbar", "Integridad meniscal"],
       respuesta: 0
     },
     {
       pregunta: "El test de Adson evalúa:",
-      opciones: [
-        "Síndrome del opérculo torácico",
-        "Lesión de LCA",
-        "Lesión meniscal",
-        "Luxación de rótula"
-      ],
+      opciones: ["Síndrome del opérculo torácico", "Lesión de LCA", "Lesión meniscal", "Luxación de rótula"],
       respuesta: 0
     }
   ],
-
   dificil: [
     {
       pregunta: "El test de Pivot Shift evalúa:",
-      opciones: [
-        "Ligamento cruzado anterior",
-        "Menisco medial",
-        "Ligamento colateral medial",
-        "Ligamento colateral lateral"
-      ],
+      opciones: ["Ligamento cruzado anterior", "Menisco medial", "Ligamento colateral medial", "Ligamento colateral lateral"],
       respuesta: 0
     },
     {
@@ -168,12 +132,7 @@ const preguntas = {
     },
     {
       pregunta: "El test de Spurling positivo indica:",
-      opciones: [
-        "Síndrome del túnel carpiano",
-        "Compresión radicular cervical",
-        "Inestabilidad lumbar",
-        "Lesión meniscal"
-      ],
+      opciones: ["Síndrome del túnel carpiano", "Compresión radicular cervical", "Inestabilidad lumbar", "Lesión meniscal"],
       respuesta: 1
     },
     {
@@ -183,12 +142,7 @@ const preguntas = {
     },
     {
       pregunta: "El ángulo Q aumentado predispone a:",
-      opciones: [
-        "Lesión del LCA",
-        "Luxación de rótula",
-        "Artrosis de cadera",
-        "Tendinopatía aquilea"
-      ],
+      opciones: ["Lesión del LCA", "Luxación de rótula", "Artrosis de cadera", "Tendinopatía aquilea"],
       respuesta: 1
     },
     {
@@ -228,22 +182,12 @@ const preguntas = {
     },
     {
       pregunta: "El síndrome compartimental agudo se caracteriza por:",
-      opciones: [
-        "Dolor intenso, pérdida de sensibilidad y disminución de pulso",
-        "Inflamación leve y movilidad conservada",
-        "Dolor solo durante el ejercicio",
-        "Espasmo muscular pasajero"
-      ],
+      opciones: ["Dolor intenso, pérdida de sensibilidad y disminución de pulso", "Inflamación leve y movilidad conservada", "Dolor solo durante el ejercicio", "Espasmo muscular pasajero"],
       respuesta: 0
     },
     {
       pregunta: "El test de Hawkins-Kennedy se utiliza para:",
-      opciones: [
-        "Impingement subacromial",
-        "Luxación de hombro",
-        "Lesión de LCA",
-        "Síndrome del piriforme"
-      ],
+      opciones: ["Impingement subacromial", "Luxación de hombro", "Lesión de LCA", "Síndrome del piriforme"],
       respuesta: 0
     },
     {
@@ -253,113 +197,123 @@ const preguntas = {
     },
     {
       pregunta: "El test de Slump evalúa:",
-      opciones: [
-        "Movilidad neural del nervio ciático",
-        "Luxación de rótula",
-        "Estabilidad cervical",
-        "Fuerza de glúteo medio"
-      ],
+      opciones: ["Movilidad neural del nervio ciático", "Luxación de rótula", "Estabilidad cervical", "Fuerza de glúteo medio"],
       respuesta: 0
     },
     {
       pregunta: "La técnica Mulligan se caracteriza por:",
-      opciones: [
-        "Movilización con movimiento",
-        "Manipulación de alta velocidad",
-        "Estiramiento estático",
-        "Electroterapia"
-      ],
+      opciones: ["Movilización con movimiento", "Manipulación de alta velocidad", "Estiramiento estático", "Electroterapia"],
       respuesta: 0
     },
     {
       pregunta: "El test de Spurling combinado con distracción cervical sirve para:",
-      opciones: [
-        "Confirmar radiculopatía cervical",
-        "Evaluar ligamento cruzado",
-        "Descartar síndrome piriforme",
-        "Valorar hernia lumbar"
-      ],
+      opciones: ["Confirmar radiculopatía cervical", "Evaluar ligamento cruzado", "Descartar síndrome piriforme", "Valorar hernia lumbar"],
       respuesta: 0
     },
     {
       pregunta: "El signo de Lhermitte se asocia con:",
-      opciones: [
-        "Esclerosis múltiple o lesión medular cervical",
-        "Lesión de ligamento cruzado",
-        "Tendinitis del supraespinoso",
-        "Síndrome facetario lumbar"
-      ],
+      opciones: ["Esclerosis múltiple o lesión medular cervical", "Lesión de ligamento cruzado", "Tendinitis del supraespinoso", "Síndrome facetario lumbar"],
       respuesta: 0
     },
     {
       pregunta: "El test de Finkelstein es positivo en:",
-      opciones: [
-        "Tendinopatía de De Quervain",
-        "Síndrome del túnel carpiano",
-        "Epicondilitis lateral",
-        "Radiculopatía C7"
-      ],
+      opciones: ["Tendinopatía de De Quervain", "Síndrome del túnel carpiano", "Epicondilitis lateral", "Radiculopatía C7"],
       respuesta: 0
     }
   ]
 };
 
+// El resto del código (las funciones) permanece exactamente igual que el que te di en la lección anterior.
 // ======================
 // Variables de control
 // ======================
-let nivel = "";
-let indice = 0;
+let nivelActual = "";
+let indicePregunta = 0;
 let puntaje = 0;
+const contenedorQuiz = document.getElementById("quiz-container");
 
 // ======================
-// Iniciar cuestionario
+// Función para iniciar el cuestionario
 // ======================
-function startQuiz(selectedNivel) {
-  nivel = selectedNivel;
-  indice = 0;
+function startQuiz(nivelSeleccionado) {
+  if (!preguntas[nivelSeleccionado] || preguntas[nivelSeleccionado].length === 0) {
+    contenedorQuiz.innerHTML = `<div class="alert alert-warning">No hay preguntas disponibles para el nivel ${nivelSeleccionado}.</div>`;
+    return;
+  }
+  nivelActual = nivelSeleccionado;
+  indicePregunta = 0;
   puntaje = 0;
   mostrarPregunta();
 }
 
 // ======================
-// Mostrar pregunta
+// Función para mostrar la pregunta actual
 // ======================
 function mostrarPregunta() {
-  const contenedor = document.getElementById("quiz-container");
-  const preguntaActual = preguntas[nivel][indice];
-
-  contenedor.innerHTML = `
-    <div class="card shadow p-4">
-      <h5>${preguntaActual.pregunta}</h5>
-      <div class="mt-3">
-        ${preguntaActual.opciones
-          .map(
-            (opcion, i) => `
-          <button class="btn btn-outline-primary d-block w-100 my-2"
-                  onclick="verificarRespuesta(${i})">
+  const pregunta = preguntas[nivelActual][indicePregunta];
+  contenedorQuiz.innerHTML = `
+    <div class="card shadow-sm p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">${indicePregunta + 1}. ${pregunta.pregunta}</h5>
+        <span class="badge bg-secondary">${indicePregunta + 1} / ${preguntas[nivelActual].length}</span>
+      </div>
+      <div id="opciones-container" class="d-grid gap-2">
+        ${pregunta.opciones.map((opcion, i) => `
+          <button class="btn btn-outline-primary text-start" data-index="${i}">
             ${opcion}
           </button>
-        `
-          )
-          .join("")}
+        `).join("")}
       </div>
+      <div id="feedback-container" class="mt-3"></div>
     </div>
   `;
+  document.querySelectorAll('#opciones-container button').forEach(button => {
+    button.addEventListener('click', verificarRespuesta);
+  });
 }
 
 // ======================
-// Verificar respuesta
+// Función para verificar la respuesta seleccionada
 // ======================
-function verificarRespuesta(i) {
-  const preguntaActual = preguntas[nivel][indice];
+function verificarRespuesta(event) {
+  const botonSeleccionado = event.target;
+  const indiceSeleccionado = parseInt(botonSeleccionado.dataset.index);
+  const pregunta = preguntas[nivelActual][indicePregunta];
+  const esCorrecta = (indiceSeleccionado === pregunta.respuesta);
+  const todosLosBotones = document.querySelectorAll('#opciones-container button');
+  todosLosBotones.forEach(button => {
+    button.disabled = true;
+  });
 
-  if (i === preguntaActual.respuesta) {
+  if (esCorrecta) {
     puntaje++;
+    botonSeleccionado.classList.remove('btn-outline-primary');
+    botonSeleccionado.classList.add('btn-success');
+  } else {
+    botonSeleccionado.classList.remove('btn-outline-primary');
+    botonSeleccionado.classList.add('btn-danger');
+    todosLosBotones[pregunta.respuesta].classList.remove('btn-outline-primary');
+    todosLosBotones[pregunta.respuesta].classList.add('btn-success');
   }
+  mostrarBotonSiguiente();
+}
 
-  indice++;
+// ======================
+// Función para mostrar el botón de siguiente
+// ======================
+function mostrarBotonSiguiente() {
+  const feedbackContainer = document.getElementById('feedback-container');
+  const esLaUltimaPregunta = (indicePregunta === preguntas[nivelActual].length - 1);
+  const textoBoton = esLaUltimaPregunta ? 'Ver Resultados' : 'Siguiente Pregunta';
+  feedbackContainer.innerHTML = `<button class="btn btn-primary w-100" onclick="siguientePaso()">${textoBoton}</button>`;
+}
 
-  if (indice < preguntas[nivel].length) {
+// ======================
+// Función para ir a la siguiente pregunta o mostrar el resultado final
+// ======================
+function siguientePaso() {
+  indicePregunta++;
+  if (indicePregunta < preguntas[nivelActual].length) {
     mostrarPregunta();
   } else {
     mostrarResultado();
@@ -367,15 +321,17 @@ function verificarRespuesta(i) {
 }
 
 // ======================
-// Mostrar resultado final
+// Función para mostrar el resultado final
 // ======================
 function mostrarResultado() {
-  const contenedor = document.getElementById("quiz-container");
-  contenedor.innerHTML = `
-    <div class="alert alert-info">
-      <h4>¡Has terminado!</h4>
-      <p>Tu puntaje es: <strong>${puntaje} de ${preguntas[nivel].length}</strong></p>
-      <button class="btn btn-primary" onclick="startQuiz(nivel)">Reintentar</button>
+  contenedorQuiz.innerHTML = `
+    <div class="card text-center shadow-sm p-4">
+      <h3>¡Cuestionario completado!</h3>
+      <p class="lead">Tu puntaje final es:</p>
+      <h2 class="display-4 fw-bold my-3">${puntaje} de ${preguntas[nivelActual].length}</h2>
+      <button class="btn btn-primary" onclick="startQuiz('${nivelActual}')">
+        Reintentar Nivel ${nivelActual.charAt(0).toUpperCase() + nivelActual.slice(1)}
+      </button>
     </div>
   `;
 }
