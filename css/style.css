@@ -36,3 +36,14 @@ li { margin-bottom: 10px; }
         padding: 1rem; /* Reduce el espacio interior en pantallas pequeñas */
     }
 }
+/* ================================== */
+/* ESTILOS PARA LAS TARJETAS DE LA BIBLIOTECA */
+/* ================================== */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* La tarjeta se eleva un poco */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important; /* La sombra se hace más pronunciada */
+}
