@@ -47,3 +47,9 @@ li { margin-bottom: 10px; }
   transform: translateY(-5px); /* La tarjeta se eleva un poco */
   box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important; /* La sombra se hace más pronunciada */
 }
+/* ================================== */
+/* ESTILOS PARA EL VISOR 3D           */
+/* ================================== */
+iframe {
+  border: none;
+}
