@@ -1,0 +1,543 @@
+// js/glosario-data.js
+
+const terminosGlosario = [
+  // ===================================================
+  // --- TÉRMINOS DE EVALUACIÓN Y DIAGNÓSTICO ---
+  // ===================================================
+  {
+    termino: "Anamnesis",
+    definicion: "Proceso de exploración clínica mediante el interrogatorio para identificar al paciente, conocer sus dolencias, obtener una retrospectiva de él y determinar elementos relevantes."
+  },
+  {
+    termino: "Goniometría",
+    definicion: "Técnica de medición de los ángulos articulares para cuantificar el rango de movimiento (ROM)."
+  },
+  {
+    termino: "Dinamometría",
+    definicion: "Medición objetiva de la fuerza muscular utilizando un dispositivo llamado dinamómetro."
+  },
+  {
+    termino: "Test de Lachman",
+    definicion: "Prueba de exploración física, considerada el estándar de oro clínico, para evaluar la integridad del ligamento cruzado anterior (LCA)."
+  },
+  {
+    termino: "Test de Apprehension (Hombro)",
+    definicion: "Prueba provocativa para la inestabilidad anterior del hombro. Se realiza con abducción y rotación externa."
+  },
+  {
+    termino: "Signo de Trendelenburg",
+    definicion: "Prueba que evalúa la fuerza del músculo glúteo medio. Es positivo si la pelvis cae hacia el lado no apoyado."
+  },
+  {
+    termino: "Escala Visual Análoga (EVA)",
+    definicion: "Instrumento subjetivo para medir la intensidad del dolor en una línea de 10 cm."
+  },
+  {
+    termino: "Escala Numérica del Dolor (END)",
+    definicion: "Escala donde el paciente califica su dolor de 0 (sin dolor) a 10 (el peor dolor imaginable)."
+  },
+  {
+    termino: "Diagnóstico Diferencial",
+    definicion: "Proceso de distinguir una enfermedad o condición de otras que presentan características clínicas similares."
+  },
+  {
+    termino: "Radiculopatía",
+    definicion: "Condición por compresión o inflamación de una raíz nerviosa espinal, que provoca dolor, parestesias o debilidad en su dermatoma/miotoma."
+  },
+  {
+    termino: "Test de Phalen",
+    definicion: "Prueba diagnóstica para el síndrome del túnel carpiano, manteniendo la muñeca en flexión completa."
+  },
+  {
+    termino: "Test de Tinel",
+    definicion: "Prueba para detectar irritación nerviosa. Se realiza percutiendo suavemente sobre el trayecto de un nervio."
+  },
+  {
+    termino: "Test de Thomas",
+    definicion: "Prueba para evaluar la contractura en flexión de la cadera, indicativa de acortamiento del psoas-ilíaco."
+  },
+  {
+    termino: "Test de Ober",
+    definicion: "Prueba para evaluar el acortamiento o contractura de la banda iliotibial y el tensor de la fascia lata."
+  },
+  {
+    termino: "Test de Slump",
+    definicion: "Prueba de tensión neural para evaluar la mecanosensibilidad del sistema nervioso en el tracto lumbosacro (nervio ciático)."
+  },
+  {
+    termino: "Red Flags (Banderas Rojas)",
+    definicion: "Signos o síntomas en la evaluación del paciente que pueden indicar una patología grave subyacente que requiere derivación médica."
+  },
+  {
+    termino: "Yellow Flags (Banderas Amarillas)",
+    definicion: "Factores psicosociales (creencias, emociones, comportamientos) que aumentan el riesgo de desarrollar o perpetuar una discapacidad a largo plazo."
+  },
+  {
+    termino: "Escala de Ashworth Modificada",
+    definicion: "Escala clínica utilizada para medir el grado de espasticidad o tono muscular anormal."
+  },
+
+  // ===================================================
+  // --- CINESITERAPIA Y EJERCICIO TERAPÉUTICO ---
+  // ===================================================
+  {
+    termino: "Cinesiterapia",
+    definicion: "Conjunto de técnicas que utilizan el movimiento como medio terapéutico."
+  },
+  {
+    termino: "Contracción Concéntrica",
+    definicion: "Tipo de contracción muscular en la que el músculo se acorta mientras genera una fuerza."
+  },
+  {
+    termino: "Contracción Excéntrica",
+    definicion: "Tipo de contracción muscular en la que el músculo se alarga mientras está bajo tensión. Crucial en la rehabilitación de tendinopatías."
+  },
+  {
+    termino: "Contracción Isométrica",
+    definicion: "Contracción muscular que genera tensión sin cambio en la longitud del músculo."
+  },
+  {
+    termino: "Contracción Isotónica",
+    definicion: "Contracción muscular con una tensión constante a lo largo del movimiento (incluye concéntricas y excéntricas)."
+  },
+  {
+    termino: "Contracción Isocinética",
+    definicion: "Contracción muscular realizada a una velocidad angular constante, generalmente con equipos especializados."
+  },
+  {
+    termino: "Cadena Cinética Abierta (CCA)",
+    definicion: "Ejercicio donde el segmento distal (mano o pie) se mueve libremente en el espacio."
+  },
+  {
+    termino: "Cadena Cinética Cerrada (CCC)",
+    definicion: "Ejercicio donde el segmento distal (mano o pie) está fijo contra una superficie."
+  },
+  {
+    termino: "Propiocepción",
+    definicion: "Capacidad del cuerpo de detectar la posición, movimiento y orientación de sus partes."
+  },
+  {
+    termino: "Control Motor",
+    definicion: "Capacidad de regular los mecanismos esenciales para el movimiento, implicando la integración sensorial y la ejecución motora."
+  },
+  {
+    termino: "Aprendizaje Motor",
+    definicion: "Conjunto de procesos asociados con la práctica o la experiencia que conducen a cambios relativamente permanentes en la capacidad de producir acciones motoras hábiles."
+  },
+  {
+    termino: "Feedback (Retroalimentación)",
+    definicion: "Información que recibe el individuo sobre el resultado de un movimiento, ya sea intrínseca (sensorial) o extrínseca (verbal, visual)."
+  },
+  {
+    termino: "Feedforward",
+    definicion: "Control motor anticipatorio que prepara al sistema para el movimiento, basado en experiencias previas."
+  },
+  {
+    termino: "Estiramiento Estático",
+    definicion: "Técnica que consiste en llevar lentamente una articulación hasta el final de su rango de movimiento y mantener la posición durante un tiempo."
+  },
+  {
+    termino: "Estiramiento Dinámico",
+    definicion: "Estiramiento que implica movimientos controlados a través del rango de movimiento completo de una articulación, preparando el cuerpo para la actividad."
+  },
+  {
+    termino: "Facilitación Neuromuscular Propioceptiva (FNP)",
+    definicion: "Técnicas de estiramiento y fortalecimiento que utilizan la estimulación de propioceptores para mejorar la respuesta neuromuscular."
+  },
+  {
+    termino: "Entrenamiento de Intervalos de Alta Intensidad (HIIT)",
+    definicion: "Forma de ejercicio que alterna períodos cortos de ejercicio anaeróbico intenso con períodos de recuperación menos intensos."
+  },
+  {
+    termino: "Método McKenzie (MDT)",
+    definicion: "Sistema de diagnóstico y terapia mecánica para problemas de columna y extremidades, basado en la respuesta sintomática a movimientos repetidos."
+  },
+  {
+    termino: "Core Stability (Estabilidad del Núcleo)",
+    definicion: "Capacidad de controlar la posición y el movimiento del tronco sobre la pelvis para permitir una producción y transferencia óptima de fuerza a las extremidades."
+  },
+
+  // ===================================================
+  // --- TERAPIA MANUAL ---
+  // ===================================================
+  {
+    termino: "Terapia Manual Ortopédica (TMO)",
+    definicion: "Área especializada de la fisioterapia para el manejo de condiciones neuro-músculo-esqueléticas, basada en el razonamiento clínico y técnicas manuales."
+  },
+  {
+    termino: "Movilización Articular",
+    definicion: "Movimientos pasivos y oscilatorios de baja velocidad aplicados a una articulación para restaurar el movimiento y aliviar el dolor."
+  },
+  {
+    termino: "Manipulación Articular (Thrust)",
+    definicion: "Impulso de alta velocidad y baja amplitud aplicado a una articulación, a menudo acompañado de un sonido de cavitación."
+  },
+  {
+    termino: "Artrokinemática",
+    definicion: "Estudio de los movimientos involuntarios que ocurren entre las superficies articulares (rodar, deslizar, girar)."
+  },
+  {
+    termino: "Osteokinemática",
+    definicion: "Estudio de los movimientos de los huesos en el espacio (flexión, extensión, abducción, etc.)."
+  },
+  {
+    termino: "Regla Cóncavo-Convexa",
+    definicion: "Principio que guía la dirección de la movilización artrokinemática basado en la forma de las superficies articulares."
+  },
+  {
+    termino: "Punto Gatillo Miofascial (PGM)",
+    definicion: "Foco hiperirritable dentro de una banda tensa de un músculo esquelético, que puede generar dolor referido."
+  },
+  {
+    termino: "Punción Seca (Dry Needling)",
+    definicion: "Técnica invasiva que utiliza una aguja para tratar los puntos gatillo miofasciales."
+  },
+  {
+    termino: "Liberación Miofascial",
+    definicion: "Técnica manual destinada a liberar restricciones del sistema fascial mediante presiones sostenidas."
+  },
+  {
+    termino: "Concepto Maitland",
+    definicion: "Enfoque de TMO que utiliza movilizaciones articulares (grados I-V) guiadas por el razonamiento clínico y la respuesta del paciente."
+  },
+  {
+    termino: "Concepto Mulligan",
+    definicion: "Enfoque de TMO que combina la movilización pasiva del terapeuta con el movimiento activo del paciente (Movilización con Movimiento)."
+  },
+  {
+    termino: "Masaje de Fricción Transversa Profunda (Cyriax)",
+    definicion: "Técnica de masaje específica para crear una hiperemia local y movilizar tejido cicatricial en tendones y ligamentos."
+  },
+  {
+    termino: "Drenaje Linfático Manual (DLM)",
+    definicion: "Técnica de masaje suave destinada a estimular la circulación de la linfa para reducir el edema y el linfedema."
+  },
+
+  // ===================================================
+  // --- MODALIDADES FÍSICAS Y ELECTROTERAPIA ---
+  // ===================================================
+  {
+    termino: "TENS (Estimulación Nerviosa Eléctrica Transcutánea)",
+    definicion: "Uso de corriente eléctrica de bajo voltaje para proporcionar alivio del dolor (analgesia)."
+  },
+  {
+    termino: "EMS (Estimulación Eléctrica Muscular)",
+    definicion: "Uso de corriente eléctrica para provocar la contracción de un músculo, utilizado para fortalecimiento o reeducación muscular."
+  },
+  {
+    termino: "Corrientes Interferenciales (CIF)",
+    definicion: "Modalidad de electroterapia que utiliza la interferencia de dos corrientes de media frecuencia para analgesia y estimulación en áreas más profundas."
+  },
+  {
+    termino: "Ultrasonido Terapéutico",
+    definicion: "Uso de ondas sonoras de alta frecuencia para producir efectos térmicos y no térmicos en los tejidos."
+  },
+  {
+    termino: "Fonoforesis",
+    definicion: "Uso del ultrasonido para facilitar la absorción de medicamentos tópicos a través de la piel."
+  },
+  {
+    termino: "Crioterapia",
+    definicion: "Aplicación de frío con fines terapéuticos para controlar el dolor, edema e inflamación."
+  },
+  {
+    termino: "Termoterapia",
+    definicion: "Aplicación de calor con fines terapéuticos para aumentar el flujo sanguíneo, disminuir la rigidez y aliviar el dolor."
+  },
+  {
+    termino: "Diatermia (Onda Corta)",
+    definicion: "Modalidad de termoterapia profunda que utiliza energía electromagnética de alta frecuencia."
+  },
+  {
+    termino: "Láser Terapéutico (Fotobiomodulación)",
+    definicion: "Aplicación de luz de baja intensidad para estimular la curación de los tejidos, reducir la inflamación y aliviar el dolor."
+  },
+  {
+    termino: "Ondas de Choque Extracorpóreas (ESWT)",
+    definicion: "Ondas acústicas de alta energía para tratar afecciones crónicas, especialmente tendinopatías calcificantes."
+  },
+  {
+    termino: "Biofeedback",
+    definicion: "Técnica que permite a un individuo aprender a controlar procesos fisiológicos (como la contracción muscular) mediante el uso de señales visuales o auditivas."
+  },
+  {
+    termino: "Tracción Vertebral (Cervical/Lumbar)",
+    definicion: "Fuerza de tracción aplicada a la columna vertebral para aliviar la presión sobre los discos y las raíces nerviosas."
+  },
+
+  // ===================================================
+  // --- NEUROLOGÍA Y CONTROL MOTOR ---
+  // ===================================================
+  {
+    termino: "Neurodinamia",
+    definicion: "Estudio de la mecánica y fisiología del sistema nervioso. Las técnicas neurodinámicas evalúan y tratan la mecanosensibilidad del tejido neural."
+  },
+  {
+    termino: "Espasticidad",
+    definicion: "Trastorno motor caracterizado por un aumento dependiente de la velocidad en el tono muscular, resultado de una lesión en la motoneurona superior."
+  },
+  {
+    termino: "Hipotonía",
+    definicion: "Disminución anormal del tono muscular."
+  },
+  {
+    termino: "Ataxia",
+    definicion: "Falta de coordinación voluntaria de los movimientos musculares, a menudo asociada con daño en el cerebelo."
+  },
+  {
+    termino: "Apraxia",
+    definicion: "Incapacidad para realizar movimientos intencionados y aprendidos a pesar de tener la capacidad física y el deseo de hacerlo."
+  },
+  {
+    termino: "Hemiplejia / Hemiparesia",
+    definicion: "Parálisis (plejia) o debilidad (paresia) de un lado del cuerpo, comúnmente causada por un accidente cerebrovascular (ACV)."
+  },
+  {
+    termino: "Paraplejia / Paraparesia",
+    definicion: "Parálisis o debilidad que afecta la parte inferior del cuerpo y ambas piernas."
+  },
+  {
+    termino: "Tetraplejia / Tetraparesia",
+    definicion: "Parálisis o debilidad que afecta a los cuatro miembros y el tronco."
+  },
+  {
+    termino: "Plasticidad Neuronal (Neuroplasticidad)",
+    definicion: "Capacidad del sistema nervioso para cambiar su estructura y funcionamiento como reacción al entorno, base de la recuperación tras una lesión neurológica."
+  },
+  {
+    termino: "Método Bobath (Concepto de Neurodesarrollo)",
+    definicion: "Enfoque terapéutico para pacientes con trastornos neurológicos, centrado en la inhibición de patrones de movimiento anormales y la facilitación de movimientos normales."
+  },
+  {
+    termino: "Dermatoma",
+    definicion: "Área de la piel inervada por una única raíz nerviosa espinal."
+  },
+  {
+    termino: "Miotoma",
+    definicion: "Grupo de músculos inervados por una única raíz nerviosa espinal."
+  },
+  {
+    termino: "Reflejo de Estiramiento Miotático",
+    definicion: "Contracción muscular involuntaria en respuesta a un estiramiento rápido de ese mismo músculo."
+  },
+
+  // ===================================================
+  // --- FISIOTERAPIA CARDIORRESPIRATORIA ---
+  // ===================================================
+  {
+    termino: "Espirometría",
+    definicion: "Prueba de función pulmonar que mide los volúmenes y flujos de aire que una persona puede inhalar y exhalar."
+  },
+  {
+    termino: "Capacidad Vital Forzada (CVF)",
+    definicion: "Máximo volumen de aire exhalado con el máximo esfuerzo posible, tras una inspiración máxima."
+  },
+  {
+    termino: "Volumen Espiratorio Forzado en 1 seg (VEF1)",
+    definicion: "Volumen de aire exhalado durante el primer segundo de la CVF."
+  },
+  {
+    termino: "Drenaje Postural",
+    definicion: "Técnica que utiliza la gravedad para ayudar a eliminar las secreciones de los pulmones, colocando al paciente en diferentes posiciones."
+  },
+  {
+    termino: "Percusión Torácica",
+    definicion: "Técnica de 'clapping' con las manos ahuecadas sobre la pared torácica para desprender las secreciones bronquiales."
+  },
+  {
+    termino: "Vibración Torácica",
+    definicion: "Técnica manual aplicada durante la espiración para movilizar las secreciones hacia las vías aéreas centrales."
+  },
+  {
+    termino: "Respiración Diafragmática",
+    definicion: "Técnica de respiración que enfatiza el uso del diafragma para mejorar la eficiencia ventilatoria y reducir el trabajo respiratorio."
+  },
+  {
+    termino: "Espirometría Incentiva",
+    definicion: "Dispositivo utilizado para animar al paciente a realizar inspiraciones lentas y profundas, ayudando a prevenir complicaciones pulmonares postoperatorias."
+  },
+  {
+    termino: "Escala de Borg (Disnea)",
+    definicion: "Escala de 0 a 10 utilizada para que el paciente califique subjetivamente su nivel de dificultad para respirar (disnea)."
+  },
+
+  // ===================================================
+  // --- BIOMECÁNICA Y ANATOMÍA FUNCIONAL ---
+  // ===================================================
+  {
+    termino: "Biomecánica",
+    definicion: "Ciencia que estudia las fuerzas y sus efectos sobre los sistemas biológicos."
+  },
+  {
+    termino: "Centro de Gravedad (CDG)",
+    definicion: "Punto imaginario en el que se concentra toda la masa de un cuerpo."
+  },
+  {
+    termino: "Base de Sustentación",
+    definicion: "Área de superficie delimitada por los puntos de apoyo de un cuerpo."
+  },
+  {
+    termino: "Torque (Momento de Fuerza)",
+    definicion: "Capacidad de una fuerza para producir una rotación alrededor de un eje. (Fuerza x Brazo de palanca)."
+  },
+  {
+    termino: "Palanca de Primer Género",
+    definicion: "El fulcro se encuentra entre la potencia y la resistencia (ej. articulación atlanto-occipital)."
+  },
+  {
+    termino: "Palanca de Segundo Género",
+    definicion: "La resistencia se encuentra entre el fulcro y la potencia (ej. levantarse de puntillas)."
+  },
+  {
+    termino: "Palanca de Tercer Género",
+    definicion: "La potencia se encuentra entre el fulcro y la resistencia (ej. flexión de codo). Es la más común en el cuerpo humano."
+  },
+  {
+    termino: "Carga Axial",
+    definicion: "Fuerza que actúa a lo largo del eje longitudinal de un hueso o segmento."
+  },
+  {
+    termino: "Fuerza de Cizalla",
+    definicion: "Fuerza que actúa paralela a una superficie, tendiendo a causar que una parte del objeto se deslice sobre otra."
+  },
+  {
+    termino: "Análisis de la Marcha",
+    definicion: "Evaluación sistemática y cuantitativa de la forma de caminar de una persona."
+  },
+
+  // ===================================================
+  // --- PATOLOGÍA Y CONDICIONES CLÍNICAS ---
+  // ===================================================
+  {
+    termino: "Tendinopatía",
+    definicion: "Término clínico general para describir el dolor y la disfunción en un tendón, que puede incluir tendinitis (inflamación) o tendinosis (degeneración)."
+  },
+  {
+    termino: "Artrosis (Osteoartritis)",
+    definicion: "Enfermedad degenerativa de las articulaciones caracterizada por el desgaste del cartílago articular y cambios en el hueso subcondral."
+  },
+  {
+    termino: "Artritis Reumatoide",
+    definicion: "Enfermedad autoinmune, inflamatoria y crónica que afecta principalmente a las articulaciones sinoviales."
+  },
+  {
+    termino: "Bursitis",
+    definicion: "Inflamación de una bursa, que es un saco lleno de líquido que reduce la fricción entre tendones, músculos y huesos."
+  },
+  {
+    termino: "Capsulitis Adhesiva (Hombro Congelado)",
+    definicion: "Condición caracterizada por rigidez y dolor en la articulación del hombro, debido al engrosamiento y contractura de la cápsula articular."
+  },
+  {
+    termino: "Síndrome de Impingement Subacromial",
+    definicion: "Compresión mecánica de las estructuras blandas (manguito rotador, bursa) en el espacio subacromial del hombro."
+  },
+  {
+    termino: "Epicondilitis Lateral (Codo de Tenista)",
+    definicion: "Tendinopatía de los músculos extensores de la muñeca en su inserción en el epicóndilo lateral del húmero."
+  },
+  {
+    termino: "Epitrocleitis (Codo de Golfista)",
+    definicion: "Tendinopatía de los músculos flexores de la muñeca en su inserción en el epicóndilo medial (epitróclea) del húmero."
+  },
+  {
+    termino: "Hernia Discal",
+    definicion: "Protrusión del núcleo pulposo de un disco intervertebral a través de una fisura en el anillo fibroso, que puede comprimir estructuras nerviosas."
+  },
+  {
+    termino: "Espondilolistesis",
+    definicion: "Desplazamiento de una vértebra sobre la vértebra adyacente inferior."
+  },
+  {
+    termino: "Estenosis Espinal",
+    definicion: "Estrechamiento del canal espinal o de los forámenes intervertebrales, que puede comprimir la médula espinal o las raíces nerviosas."
+  },
+  {
+    termino: "Escoliosis",
+    definicion: "Desviación lateral de la columna vertebral, a menudo acompañada de una rotación vertebral."
+  },
+  {
+    termino: "Síndrome del Túnel Carpiano",
+    definicion: "Neuropatía por compresión del nervio mediano a su paso por el túnel carpiano en la muñeca."
+  },
+  {
+    termino: "Síndrome del Dolor Patelofemoral",
+    definicion: "Dolor alrededor o detrás de la rótula, a menudo relacionado con problemas de alineación y seguimiento rotuliano."
+  },
+  {
+    termino: "Fascitis Plantar",
+    definicion: "Inflamación y degeneración de la fascia plantar, el tejido grueso en la planta del pie, causando dolor en el talón."
+  },
+  {
+    termino: "Linfedema",
+    definicion: "Acumulación de líquido linfático en los tejidos blandos del cuerpo, causando hinchazón (edema), comúnmente en brazos o piernas."
+  },
+
+  // ===================================================
+  // --- CONCEPTOS GENERALES Y PROFESIONALES ---
+  // ===================================================
+  {
+    termino: "Fisioterapia Basada en la Evidencia (FBE)",
+    definicion: "Práctica clínica que integra la mejor evidencia de investigación, la pericia clínica y los valores del paciente."
+  },
+  {
+    termino: "Razonamiento Clínico",
+    definicion: "Proceso cognitivo utilizado por los profesionales de la salud para recopilar, analizar y sintetizar información para tomar decisiones clínicas."
+  },
+  {
+    termino: "Modelo Biopsicosocial",
+    definicion: "Enfoque que reconoce que la salud y la enfermedad son el resultado de la interacción compleja de factores biológicos, psicológicos y sociales."
+  },
+  {
+    termino: "Educación Terapéutica en Neurociencia del Dolor (PNE)",
+    definicion: "Estrategia educativa para ayudar a los pacientes a comprender la biología del dolor, con el fin de reducir la amenaza percibida y mejorar la función."
+  },
+  {
+    termino: "Dolor Nociceptivo",
+    definicion: "Dolor que surge del daño real o amenaza de daño al tejido no neural, mediado por la activación de nociceptores."
+  },
+  {
+    termino: "Dolor Neuropático",
+    definicion: "Dolor causado por una lesión o enfermedad del sistema nervioso somatosensorial."
+  },
+  {
+    termino: "Dolor Nociplástico",
+    definicion: "Dolor que surge de una nocicepción alterada sin evidencia de daño tisular, asociado a una sensibilización del sistema nervioso central."
+  },
+  {
+    termino: "Sensibilización Central",
+    definicion: "Hiperexcitabilidad del sistema nervioso central que amplifica la percepción del dolor. Un mecanismo clave en el dolor crónico."
+  },
+  {
+    termino: "Alodinia",
+    definicion: "Dolor provocado por un estímulo que normalmente no es doloroso (ej. el roce de la ropa)."
+  },
+  {
+    termino: "Hiperalgesia",
+    definicion: "Respuesta dolorosa exagerada a un estímulo que normalmente es doloroso."
+  },
+  {
+    termino: "Cicatrización Tisular",
+    definicion: "Proceso biológico de reparación de tejidos que generalmente consta de tres fases: inflamatoria, proliferativa y de remodelación."
+  },
+  {
+    termino: "Ergonomía",
+    definicion: "Ciencia de diseñar el entorno de trabajo para adaptarse a las capacidades y limitaciones del trabajador, buscando optimizar el bienestar y el rendimiento."
+  },
+  {
+    termino: "Clasificación Internacional del Funcionamiento (CIF)",
+    definicion: "Marco de la OMS para medir la salud y la discapacidad a nivel individual y poblacional, centrándose en el funcionamiento en lugar de la enfermedad."
+  },
+  {
+    termino: "Kinesiofobia",
+    definicion: "Miedo excesivo, irracional y debilitante al movimiento o a la actividad física, resultante de una sensación de vulnerabilidad a una lesión dolorosa o a una nueva lesión."
+  },
+  {
+    termino: "Autogestión (Self-management)",
+    definicion: "Participación activa del paciente en el manejo de su condición de salud, incluyendo la toma de decisiones y la adherencia al tratamiento."
+  },
+  {
+    termino: "Adherencia Terapéutica",
+    definicion: "Grado en que el comportamiento de una persona (tomar medicación, seguir un régimen de ejercicios) coincide con las recomendaciones acordadas con el profesional de la salud."
+  }
+];
