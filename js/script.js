@@ -335,3 +335,39 @@ function mostrarResultado() {
     </div>
   `;
 }
+// ===================================================================
+//  LÓGICA PARA EL BUSCADOR DEL GLOSARIO
+// ===================================================================
+
+// Esperamos a que todo el contenido de la página se cargue
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Buscamos en el documento el input del buscador y la lista de términos
+  const buscador = document.getElementById('buscadorGlosario');
+  const lista = document.getElementById('listaGlosario');
+
+  // Si ambos elementos existen en la página...
+  if (buscador && lista) {
+    const terminos = lista.getElementsByTagName('dt'); // Obtenemos todos los términos <dt>
+    const definiciones = lista.getElementsByTagName('dd'); // Obtenemos todas las definiciones <dd>
+
+    // Añadimos un "escuchador de eventos" al buscador que se activa cada vez que el usuario teclea algo
+    buscador.addEventListener('keyup', () => {
+      const textoBuscado = buscador.value.toLowerCase(); // Convertimos el texto a minúsculas para que la búsqueda no distinga
+
+      // Recorremos todos los términos para ver cuáles coinciden
+      for (let i = 0; i < terminos.length; i++) {
+        const textoTermino = terminos[i].textContent.toLowerCase();
+
+        // Si el texto del término incluye lo que el usuario ha buscado...
+        if (textoTermino.includes(textoBuscado)) {
+          terminos[i].style.display = ''; // Lo mostramos
+          definiciones[i].style.display = ''; // Y mostramos su definición
+        } else {
+          terminos[i].style.display = 'none'; // Si no coincide, lo ocultamos
+          definiciones[i].style.display = 'none'; // Y ocultamos su definición
+        }
+      }
+    });
+  }
+});
