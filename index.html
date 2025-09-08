@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>App Fisioterapia</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>App de Fisioterapia</h1>
+    <p>Repasa, aprende y consulta recursos</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('cuestionario')">Cuestionario</a>
+    <a href="#" onclick="mostrarSeccion('biblioteca')">Biblioteca</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- Inicio -->
+    <div id="inicio" class="card">
+      <h2>Bienvenido 👋</h2>
+      <p>Explora las secciones: contesta el cuestionario y revisa la biblioteca de artículos.</p>
+    </div>
+
+    <!-- Cuestionario -->
+    <div id="cuestionario" class="card hidden">
+      <h2>📝 Cuestionario</h2>
+      <button onclick="aumentarDificultad()">Subir dificultad</button>
+      <p id="pregunta"></p>
+      <div id="opciones"></div>
+      <p id="feedback"></p>
+      <button id="btnSiguiente" onclick="siguientePregunta()" class="hidden">Siguiente</button>
+      <p id="resultado" class="hidden"></p>
+    </div>
+
+    <!-- Biblioteca -->
+    <div id="biblioteca" class="card hidden">
+      <h2>📚 Biblioteca de Artículos</h2>
+      <ul id="listaPDF"></ul>
+      <p>(Aquí se agregarán tus PDFs)</p>
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
