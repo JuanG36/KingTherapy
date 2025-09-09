@@ -383,3 +383,80 @@ document.addEventListener('DOMContentLoaded', () => {
     buscadorGlosario.addEventListener('input', filtrarGlosario);
   }
 });
+// ===================================================================
+// --- LÓGICA PARA EL CASO CLÍNICO INTERACTIVO CON IA ---
+// ===================================================================
+
+// Asegurémonos de que este código también esté dentro del DOMContentLoaded
+// para que se ejecute después de que la página se cargue por completo.
+document.addEventListener('DOMContentLoaded', () => {
+  // ... (aquí dentro ya está tu código del glosario) ...
+  
+  // --- NUEVO CÓDIGO PARA LA IA ---
+  const btnEvaluar = document.getElementById('btn-evaluar-ia');
+  const respuestaAlumnoTextarea = document.getElementById('respuesta-alumno');
+  const feedbackContainer = document.getElementById('feedback-ia-container');
+  const btnTexto = document.getElementById('btn-evaluar-texto');
+  const btnSpinner = document.getElementById('btn-evaluar-spinner');
+
+  // Verificamos si el botón existe en la página
+  if (btnEvaluar) {
+    // Añadimos un "escuchador" que se activa cuando el usuario hace clic
+    btnEvaluar.addEventListener('click', async () => {
+      const respuestaAlumno = respuestaAlumnoTextarea.value;
+
+      // Validación simple: no enviar si no hay respuesta
+      if (!respuestaAlumno.trim()) {
+        feedbackContainer.innerHTML = `<div class="alert alert-warning">Por favor, escribe tu plan de tratamiento antes de evaluar.</div>`;
+        return;
+      }
+
+      // 1. Preparamos la interfaz para la carga
+      btnTexto.textContent = 'Evaluando...';
+      btnSpinner.classList.remove('d-none'); // Muestra el spinner
+      btnEvaluar.disabled = true;
+      feedbackContainer.innerHTML = ''; // Limpiamos el feedback anterior
+
+      try {
+        // 2. Llamamos a nuestra función serverless (el "mesero")
+        const response = await fetch('/.netlify/functions/evaluar-caso', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ respuestaAlumno: respuestaAlumno }),
+        });
+
+        // Si la respuesta del servidor no es exitosa, lanzamos un error
+        if (!response.ok) {
+          throw new Error('Hubo un problema con la respuesta del servidor.');
+        }
+
+        // 3. Obtenemos el feedback de la IA desde la respuesta
+        const data = await response.json();
+        const feedbackHTML = data.feedback;
+
+        // 4. Mostramos el feedback en un cuadro bonito
+        feedbackContainer.innerHTML = `
+          <div class="card bg-light mt-3">
+            <div class="card-body">
+              <h6 class="card-title text-success">Feedback de la IA:</h6>
+              ${feedbackHTML}
+            </div>
+          </div>
+        `;
+
+      } catch (error) {
+        // 5. Si algo sale mal, mostramos un mensaje de error
+        console.error('Error al llamar a la función de IA:', error);
+        feedbackContainer.innerHTML = `<div class="alert alert-danger">Lo sentimos, no se pudo obtener el feedback. Por favor, inténtalo de nuevo más tarde.</div>`;
+      
+      } finally {
+        // 6. Restauramos el botón a su estado original, tanto si hubo éxito como si hubo error
+        btnTexto.textContent = 'Evaluar con IA';
+        btnSpinner.classList.add('d-none'); // Oculta el spinner
+        btnEvaluar.disabled = false;
+      }
+    });
+  }
+});
