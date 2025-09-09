@@ -11,23 +11,237 @@ const preguntas = {
     {
       pregunta: "¿Cuál es el hueso más largo del cuerpo humano?",
       opciones: ["Tibia", "Fémur", "Húmero", "Peroné"],
-      respuesta: 1,
-      explicacion: "El fémur, ubicado en el muslo, es el hueso más largo y fuerte del cuerpo humano."
+      respuesta: 1
     },
     {
-      pregunta: "¿Qué músculo es el principal responsable de la flexión del codo?",
-      opciones: ["Tríceps braquial", "Deltoides", "Bíceps braquial", "Pectoral mayor"],
-      respuesta: 2,
-      explicacion: "El bíceps braquial, ubicado en la parte anterior del brazo, es el principal motor de la flexión del codo."
+      pregunta: "¿Qué articulación une el fémur con la tibia?",
+      opciones: ["Cadera", "Tobillo", "Rodilla", "Hombro"],
+      respuesta: 2
+    },
+    {
+      pregunta: "¿Cuál es la función principal del diafragma?",
+      opciones: ["Inspiración", "Digestión", "Estabilidad lumbar", "Deglución"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué tipo de contracción mantiene la fuerza sin movimiento?",
+      opciones: ["Concéntrica", "Excéntrica", "Isométrica", "Isotónica"],
+      respuesta: 2
+    },
+    {
+      pregunta: "¿Qué hueso forma el talón?",
+      opciones: ["Astrágalo", "Calcáneo", "Cuboides", "Escafoides"],
+      respuesta: 1
+    },
+    {
+      pregunta: "¿Qué músculo es conocido como el gemelo interno?",
+      opciones: ["Gastrocnemio medial", "Sóleo", "Plantaris", "Tibial posterior"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Cuál es el rango normal de movimiento de la flexión de codo?",
+      opciones: ["0-90°", "0-120°", "0-135°", "0-150°"],
+      respuesta: 2
+    },
+    {
+      pregunta: "¿Qué músculo es el principal abductor de cadera?",
+      opciones: ["Glúteo medio", "Glúteo mayor", "Glúteo menor", "Psoas"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Cuál es el hueso más pequeño del cuerpo humano?",
+      opciones: ["Martillo", "Yunque", "Estribo", "Falange distal"],
+      respuesta: 2
+    },
+    {
+      pregunta: "¿Qué movimiento hace principalmente el tríceps braquial?",
+      opciones: ["Flexión de codo", "Extensión de codo", "Supinación", "Abducción"],
+      respuesta: 1
+    },
+    {
+      pregunta: "¿Cuál es el principal hueso del muslo?",
+      opciones: ["Tibia", "Fémur", "Peroné", "Húmero"],
+      respuesta: 1
+    },
+    {
+      pregunta: "¿Qué movimiento realiza el supraespinoso?",
+      opciones: ["Abducción inicial del hombro", "Rotación interna", "Rotación externa", "Flexión"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Dónde se encuentra el hueso escafoides?",
+      opciones: ["Mano", "Pie", "Codo", "Hombro"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué hueso se articula con el acetábulo?",
+      opciones: ["Fémur", "Tibia", "Peroné", "Húmero"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Cuál es el músculo antagonista del bíceps braquial?",
+      opciones: ["Tríceps braquial", "Braquial", "Serrato anterior", "Redondo menor"],
+      respuesta: 0
     }
   ],
+
   intermedio: [
-    // ... todas tus preguntas de nivel intermedio
+    {
+      pregunta: "¿Qué evalúa el test de Lachman?",
+      opciones: ["LCA", "LCP", "LCM", "LCL"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué músculo estabiliza dinámicamente la rodilla?",
+      opciones: ["Cuádriceps", "Isquiotibiales", "Sartorio", "Gastrocnemio"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Thomas evalúa la flexibilidad de:",
+      opciones: ["Isquiotibiales", "Psoas-ilíaco", "Glúteo mayor", "Sóleo"],
+      respuesta: 1
+    },
+    {
+      pregunta: "El ligamento más afectado en un esguince de tobillo es:",
+      opciones: ["Deltoideo", "Peroneoastragalino anterior", "Calcaneoperoneo", "Peroneoastragalino posterior"],
+      respuesta: 1
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Neer?",
+      opciones: ["Manguito rotador", "Ligamento cruzado anterior", "Menisco medial", "Columna lumbar"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué rango de flexión de rodilla es normal?",
+      opciones: ["0-90°", "0-120°", "0-135°", "0-150°"],
+      respuesta: 2
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Apley (compresión)?",
+      opciones: ["Meniscos", "Ligamento cruzado anterior", "LCM", "Cápsula articular"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Trendelenburg?",
+      opciones: ["Glúteo medio", "Ligamento cruzado", "Movilidad lumbar", "Menisco"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Dónde se palpa el pulso tibial posterior?",
+      opciones: ["Debajo maléolo medial", "Debajo maléolo lateral", "Dorsal del pie", "Cara anterior tobillo"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Phalen?",
+      opciones: ["Radiculopatía cervical", "Síndrome del túnel carpiano", "Epicondilitis", "Inestabilidad muñeca"],
+      respuesta: 1
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Adson?",
+      opciones: ["Síndrome del opérculo torácico", "Lesión de LCA", "Lesión meniscal", "Luxación rótula"],
+      respuesta: 0
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Spurling?",
+      opciones: ["Radiculopatía cervical", "Hernia lumbar", "Síndrome piriforme", "Epicondilitis medial"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Lachman es más sensible que el de cajón anterior, ¿verdadero?",
+      opciones: ["Verdadero", "Falso"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Allen evalúa:",
+      opciones: ["Circulación arterial mano", "Inestabilidad hombro", "Piriforme", "Dolor lumbar"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El balance muscular de Kendall llega hasta:",
+      opciones: ["3", "4", "5", "10"],
+      respuesta: 2
+    }
   ],
+
   dificil: [
-    // ... todas tus preguntas de nivel difícil
+    {
+      pregunta: "¿Qué evalúa el test de Pivot Shift?",
+      opciones: ["LCA", "LCP", "LCL", "Menisco medial"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El reflejo aquíleo evalúa qué raíz nerviosa:",
+      opciones: ["L3", "L4", "S1", "S2"],
+      respuesta: 2
+    },
+    {
+      pregunta: "La escala de Ashworth modificada mide:",
+      opciones: ["Fuerza", "Espasticidad", "Dolor", "Movilidad"],
+      respuesta: 1
+    },
+    {
+      pregunta: "¿Qué evalúa el test de Ober?",
+      opciones: ["Isquiotibiales", "Tensor de la fascia lata", "Aductor mayor", "Sóleo"],
+      respuesta: 1
+    },
+    {
+      pregunta: "El ángulo Q aumentado predispone a:",
+      opciones: ["Luxación rótula", "Artrosis cadera", "LCA", "Tendinopatía Aquiles"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Slump evalúa:",
+      opciones: ["Movilidad neural ciático", "Luxación rótula", "Estabilidad cervical", "Fuerza glúteo medio"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El signo de Lhermitte se asocia con:",
+      opciones: ["Lesión medular cervical", "Tendinitis supraespinoso", "LCA", "Dolor facetario"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Hawkins-Kennedy evalúa:",
+      opciones: ["Impingement subacromial", "Luxación hombro", "Síndrome piriforme", "Epicondilitis medial"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Apprehension evalúa:",
+      opciones: ["Luxación anterior de hombro", "Menisco lateral", "Inestabilidad tobillo", "Epicondilitis"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Finkelstein es positivo en:",
+      opciones: ["De Quervain", "Túnel carpiano", "Epicondilitis", "Radiculopatía C7"],
+      respuesta: 0
+    },
+    {
+      pregunta: "La escala de Borg mide:",
+      opciones: ["Percepción del esfuerzo", "Espasticidad", "Dolor neuropático", "Fuerza"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Allen modificado evalúa:",
+      opciones: ["Irrigación arterial mano", "Inestabilidad hombro", "Dolor facetario lumbar", "Síndrome piriforme"],
+      respuesta: 0
+    },
+    {
+      pregunta: "La maniobra de Valsalva puede indicar:",
+      opciones: ["Hernia disco lumbar", "Hipertensión", "Tendinitis", "Lumbalgia mecánica"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El síndrome compartimental agudo cursa con:",
+      opciones: ["Dolor intenso + pérdida sensibilidad + sin pulso", "Dolor leve", "Espasmo pasajero", "Rigidez simple"],
+      respuesta: 0
+    },
+    {
+      pregunta: "El test de Spurling combinado con distracción cervical confirma:",
+      opciones: ["Radiculopatía cervical", "Hernia lumbar", "Síndrome piriforme", "Lesión meniscal"],
+      respuesta: 0
+    }
   ]
 };
+
 let nivelActual = "";
 let indicePregunta = 0;
 let puntaje = 0;
@@ -129,54 +343,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const buscadorGlosario = document.getElementById('buscadorGlosario');
   const listaGlosario = document.getElementById('listaGlosario');
 
-  // Función para llenar la lista del glosario desde el archivo de datos
-  function cargarGlosario() {
-    // 1. Verificamos que tanto la lista del HTML como los datos del glosario existan
-    if (!listaGlosario || typeof terminosGlosario === 'undefined') {
+  // Al cargar, el glosario queda vacío
+  if (listaGlosario) {
+    listaGlosario.innerHTML = '';
+  }
+
+  // Función para filtrar el glosario por término
+  function filtrarGlosario() {
+    const input = buscadorGlosario.value.toLowerCase();
+    listaGlosario.innerHTML = "";
+    let encontrados = 0;
+    if (input.length === 0) {
+      // Si el input está vacío, no mostramos nada
       return;
     }
-    
-    // 2. Limpiamos la lista para asegurarnos de que esté vacía
-    listaGlosario.innerHTML = '';
-    
-    // 3. Recorremos cada término de nuestra "base de datos" y creamos el HTML
     terminosGlosario.forEach(item => {
-      const dt = document.createElement('dt');
-      dt.textContent = item.termino;
-      
-      const dd = document.createElement('dd');
-      dd.textContent = item.definicion;
-      
-      listaGlosario.appendChild(dt);
-      listaGlosario.appendChild(dd);
-    });
-  }
-
-  // Función para filtrar los términos según lo que escribe el usuario
-  function filtrarGlosario() {
-    const textoBuscado = buscadorGlosario.value.toLowerCase();
-    const terminosEnLista = listaGlosario.getElementsByTagName('dt');
-    const definicionesEnLista = listaGlosario.getElementsByTagName('dd');
-
-    for (let i = 0; i < terminosEnLista.length; i++) {
-      const textoTermino = terminosEnLista[i].textContent.toLowerCase();
-      
-      if (textoTermino.includes(textoBuscado)) {
-        terminosEnLista[i].style.display = '';
-        definicionesEnLista[i].style.display = '';
-      } else {
-        terminosEnLista[i].style.display = 'none';
-        definicionesEnLista[i].style.display = 'none';
+      if (item.termino.toLowerCase().includes(input)) {
+        encontrados++;
+        const dt = document.createElement("dt");
+        dt.textContent = item.termino;
+        dt.classList.add("fw-bold", "mt-2");
+        const dd = document.createElement("dd");
+        dd.textContent = item.definicion;
+        dd.classList.add("text-muted");
+        listaGlosario.appendChild(dt);
+        listaGlosario.appendChild(dd);
       }
+    });
+    if (encontrados === 0) {
+      const mensaje = document.createElement("p");
+      mensaje.textContent = "No se encontraron resultados.";
+      mensaje.classList.add("text-danger", "fw-bold", "mt-2");
+      listaGlosario.appendChild(mensaje);
     }
   }
 
-  // --- INICIALIZACIÓN DEL GLOSARIO ---
-  // 1. Llamamos a la función para que construya la lista del glosario.
-  cargarGlosario();
-  
-  // 2. Si el buscador existe, le decimos que llame a la función de filtrar cada vez que el usuario teclee algo.
+  // Asignar evento al input para filtrar mientras se escribe
   if (buscadorGlosario) {
-    buscadorGlosario.addEventListener('keyup', filtrarGlosario);
+    buscadorGlosario.addEventListener('input', filtrarGlosario);
   }
 });
