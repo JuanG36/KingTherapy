@@ -1,24 +1,147 @@
-/* ========================================= */
-/* CONFIGURACIÓN GENERAL Y FUENTES           */
-/* ========================================= */
+/* ============================= */
+/* OPTIMIZACIÓN PARA MÓVIL       */
+/* ============================= */
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+  body {
+    padding: 0 0.5rem;
+  }
+  .navbar {
+    padding: 0.5rem 0.5rem;
+  }
+  .navbar .navbar-brand {
+    font-size: 1.2rem;
+  }
+  .navbar .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .feature-card, .card {
+    border-radius: 12px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 0.7rem 0.5rem;
+  }
+  .feature-card .card-body, .card .card-body {
+    padding: 1rem 0.5rem;
+  }
+  h1, h2, h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+  .btn, button, .form-control {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+  }
+  .form-control {
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .alert, .badge {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .row, .container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  section {
+    padding: 1.2rem 0.2rem;
+  }
+  .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .lead {
+    font-size: 1.05rem;
+  }
+  .display-4, .display-5 {
+    font-size: 2rem;
+  }
+  .shadow-sm, .shadow {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  }
+  .footer, footer {
+    font-size: 0.95rem;
+    padding: 1rem 0.2rem;
+  }
+  /* Mini quiz y botones grandes */
+  #mini-quiz-container .btn, #mini-quiz-container button {
+    font-size: 1.05rem;
+    padding: 0.8rem 0.5rem;
+  }
+  /* Inputs grandes para glosario */
+  #buscadorGlosario.form-control {
+    font-size: 1.1rem;
+    padding: 0.7rem 0.8rem;
+  }
+}
+
 :root {
     --color-primario: #0d6efd;
     --color-fondo: #f8f9fa;
     --color-tarjeta: #ffffff;
     --color-texto: #212529;
+    --color-navbar: #0d6efd;
+    --color-navbar-text: #fff;
     --fuente-titulos: 'Poppins', sans-serif;
     --fuente-cuerpo: 'Lato', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth; /* ¡La magia para el scroll suave! */
+    --transicion-ui: background 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s;
 }
 
 body {
     font-family: var(--fuente-cuerpo);
     background-color: var(--color-fondo);
     color: var(--color-texto);
+    transition: var(--transicion-ui);
 }
+
+body.darkmode {
+    --color-fondo: #181a1b;
+    --color-tarjeta: #23272b;
+    --color-texto: #f8f9fa;
+    --color-navbar: #23272b;
+    --color-navbar-text: #ffd700;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.navbar, .navbar.bg-primary {
+    background-color: var(--color-navbar) !important;
+    color: var(--color-navbar-text) !important;
+    transition: var(--transicion-ui);
+}
+.navbar .navbar-brand, .navbar .nav-link, .navbar .btn {
+    color: var(--color-navbar-text) !important;
+    transition: var(--transicion-ui);
+}
+
+.card, .feature-card {
+    background: var(--color-tarjeta);
+    color: var(--color-texto);
+    transition: var(--transicion-ui);
+}
+
+section, .card, .feature-card, .btn, .form-control, .alert {
+    transition: var(--transicion-ui);
+}
+
+/* Animaciones suaves para botones */
+.btn, .form-control {
+    transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+}/* ========================================= */
+/* CONFIGURACIÓN GENERAL Y FUENTES           */
+/* ========================================= */
+
+html {
+    scroll-behavior: smooth; /* ¡La magia para el scroll suave! */
+}
+
 
 h1, h2, h3, h4, h5, .navbar-brand, .nav-link {
     font-family: var(--fuente-titulos);

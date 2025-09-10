@@ -20,12 +20,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <button id="toggle-darkmode" class="btn btn-outline-light ms-3" title="Modo claro/oscuro" style="transition: background 0.3s, color 0.3s;">
+  <span id="icon-darkmode">🌙</span>
+</button>
           <li class="nav-item"><a class="nav-link" href="#anatomia-3d">Anatomía 3D</a></li>
           <li class="nav-item"><a class="nav-link" href="#cuestionario">Cuestionario</a></li>
           <li class="nav-item"><a class="nav-link" href="#casos-clinicos">Casos Clínicos</a></li>
           <li class="nav-item"><a class="nav-link" href="#biblioteca">Biblioteca</a></li>
           <li class="nav-item"><a class="nav-link" href="#glosario">Glosario</a></li>
-          <li class="nav-item"><a class="nav-link" href="#flashcards">Flashcards</a></li>
+
         </ul>
       </div>
     </div>
@@ -99,10 +102,10 @@
 <div class="col">
   <div class="card h-100 text-center feature-card">
     <div class="card-body">
-      <h2 class="display-5">🃏</h2>
-      <h5 class="card-title">Flashcards</h5>
-      <p class="card-text">Memoriza conceptos clave con tarjetas de estudio interactivas.</p>
-      <a href="#flashcards" class="btn btn-outline-primary">Estudiar</a>
+      <h2 class="display-5">🧪</h2>
+      <h5 class="card-title">Mini Quiz Clínico</h5>
+      <p class="card-text">Pon a prueba tus conocimientos sobre pruebas funcionales, de resistencia y específicas.</p>
+      <a href="#mini-quiz" class="btn btn-outline-primary">Jugar Mini Quiz</a>
     </div>
   </div>
 </div>
@@ -178,6 +181,8 @@
             <button class="btn btn-outline-secondary" id="btn-caso-siguiente">Siguiente →</button>
           </div>
 <script src="js/casos-clinicos-data.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="js/script.js"></script>
         </div>
       </div>
@@ -233,36 +238,49 @@
     </div>
   </div>
  </section>
- <section id="flashcards" class="py-5">
+ <section id="mini-quiz" class="py-5">
       <div class="container">
-        <h2 class="mb-4 text-center">🃏 Flashcards de Estudio</h2>
-        <p class="text-center text-muted mb-5">Elige un mazo y pon a prueba tu memoria con el método de recuperación activa.</p>
+        <h2 class="mb-4 text-center">🧪 Mini Quiz de Pruebas Clínicas</h2>
+        <p class="text-center text-muted mb-4">Selecciona el tipo de prueba y responde preguntas tipo Kahoot.</p>
         <div class="row justify-content-center mb-4">
-          <div class="col-md-6">
-            <select class="form-select form-select-lg" id="selector-mazo"></select>
+          <div class="col-md-8 text-center">
+            <button class="btn btn-primary m-2" onclick="startMiniQuiz('funcionales')">Pruebas Funcionales</button>
+            <button class="btn btn-success m-2" onclick="startMiniQuiz('resistencia')">Pruebas de Resistencia</button>
+            <button class="btn btn-warning m-2" onclick="startMiniQuiz('especificas')">Pruebas Específicas</button>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-6">
-            <div id="flashcard-container" class="flashcard">
-              <div class="flashcard-inner">
-                <div class="flashcard-front"></div>
-                <div class="flashcard-back"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-4">
-          <div class="col-md-8 col-lg-6 d-flex justify-content-between align-items-center">
-            <button class="btn btn-outline-secondary" id="btn-flashcard-anterior">← Anterior</button>
-            <span id="flashcard-contador" class="text-muted"></span>
-            <button class="btn btn-outline-secondary" id="btn-flashcard-siguiente">Siguiente →</button>
+          <div class="col-md-8">
+            <div id="mini-quiz-container"></div>
           </div>
         </div>
       </div>
     </section>
 
   </div>
+
+
+  <!-- Foro de comentarios -->
+  <section id="foro" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">💬 Foro de Comentarios y Sugerencias</h2>
+      <p class="text-center text-muted mb-4">Comparte tus dudas, sugerencias o retroalimentación para mejorar la app.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="form-comentario" class="mb-4">
+            <div class="mb-3">
+              <input type="text" id="nombre-usuario" class="form-control" maxlength="30" placeholder="Tu nombre o apodo (opcional)">
+            </div>
+            <div class="mb-3">
+              <textarea id="texto-comentario" class="form-control" rows="3" maxlength="300" placeholder="Escribe tu comentario o sugerencia..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar comentario</button>
+          </form>
+          <div id="lista-comentarios"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="bg-dark text-white text-center py-4">
     <div class="container">
@@ -271,13 +289,67 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script src="js/glosario-data.js"></script>
-  <script src="js/casos-clinicos-data.js"></script>
-  <script src="js/flashcards-data.js"></script>
-  
-  <script src="js/script.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<script src="js/glosario-data.js"></script>
+<script src="js/casos-clinicos-data.js"></script>
+
+
+<script src="js/script.js"></script>
+<script>
+  // Modo claro/oscuro
+  const darkModeBtn = document.getElementById('toggle-darkmode');
+  const iconDarkmode = document.getElementById('icon-darkmode');
+  function setDarkMode(active) {
+    document.body.classList.toggle('darkmode', active);
+    iconDarkmode.textContent = active ? '☀️' : '🌙';
+    localStorage.setItem('darkmode', active ? '1' : '0');
+  }
+  if (darkModeBtn) {
+    darkModeBtn.addEventListener('click', () => {
+      setDarkMode(!document.body.classList.contains('darkmode'));
+    });
+    // Estado inicial
+    if (localStorage.getItem('darkmode') === '1') setDarkMode(true);
+  }
+
+  // Foro de comentarios (localStorage)
+  const formComentario = document.getElementById('form-comentario');
+  const listaComentarios = document.getElementById('lista-comentarios');
+  function renderComentarios() {
+    const comentarios = JSON.parse(localStorage.getItem('foroComentarios') || '[]');
+    if (comentarios.length === 0) {
+      listaComentarios.innerHTML = '<div class="alert alert-info text-center">Aún no hay comentarios. ¡Sé el primero en participar!</div>';
+      return;
+    }
+    listaComentarios.innerHTML = comentarios.map(c => `
+      <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <strong>${c.nombre ? c.nombre : 'Anónimo'}</strong>
+            <span class="text-muted" style="font-size:0.9em;">${c.fecha}</span>
+          </div>
+          <div>${c.texto}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+  if (formComentario) {
+    formComentario.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre-usuario').value.trim();
+      const texto = document.getElementById('texto-comentario').value.trim();
+      if (!texto) return;
+      const fecha = new Date().toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' });
+      const nuevo = { nombre, texto, fecha };
+      const comentarios = JSON.parse(localStorage.getItem('foroComentarios') || '[]');
+      comentarios.unshift(nuevo);
+      localStorage.setItem('foroComentarios', JSON.stringify(comentarios));
+      formComentario.reset();
+      renderComentarios();
+    });
+    renderComentarios();
+  }
+</script>
 </body>
 </html>
