@@ -337,26 +337,17 @@ function mostrarResultado() {
 // --- LÓGICA DEL GLOSARIO (VERSIÓN CORREGIDA) ---
 // ===================================================================
 
-// Esta función se asegura de que todo el HTML esté cargado antes de ejecutar el código.
+// Unificamos toda la lógica en un solo DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-  
+  // --- LÓGICA DEL GLOSARIO ---
   const buscadorGlosario = document.getElementById('buscadorGlosario');
   const listaGlosario = document.getElementById('listaGlosario');
-
-  // Al cargar, el glosario queda vacío
-  if (listaGlosario) {
-    listaGlosario.innerHTML = '';
-  }
-
-  // Función para filtrar el glosario por término
+  if (listaGlosario) listaGlosario.innerHTML = '';
   function filtrarGlosario() {
     const input = buscadorGlosario.value.toLowerCase();
     listaGlosario.innerHTML = "";
     let encontrados = 0;
-    if (input.length === 0) {
-      // Si el input está vacío, no mostramos nada
-      return;
-    }
+    if (input.length === 0) return;
     terminosGlosario.forEach(item => {
       if (item.termino.toLowerCase().includes(input)) {
         encontrados++;
@@ -377,66 +368,35 @@ document.addEventListener('DOMContentLoaded', () => {
       listaGlosario.appendChild(mensaje);
     }
   }
+  if (buscadorGlosario) buscadorGlosario.addEventListener('input', filtrarGlosario);
 
-  // Asignar evento al input para filtrar mientras se escribe
-  if (buscadorGlosario) {
-    buscadorGlosario.addEventListener('input', filtrarGlosario);
-  }
-});
-// ===================================================================
-// --- LÓGICA PARA EL CASO CLÍNICO INTERACTIVO CON IA ---
-// ===================================================================
-
-// Asegurémonos de que este código también esté dentro del DOMContentLoaded
-// para que se ejecute después de que la página se cargue por completo.
-document.addEventListener('DOMContentLoaded', () => {
-  // ... (aquí dentro ya está tu código del glosario) ...
-  
-  // --- NUEVO CÓDIGO PARA LA IA ---
+  // --- LÓGICA PARA EL CASO CLÍNICO INTERACTIVO CON IA ---
   const btnEvaluar = document.getElementById('btn-evaluar-ia');
   const respuestaAlumnoTextarea = document.getElementById('respuesta-alumno');
   const feedbackContainer = document.getElementById('feedback-ia-container');
   const btnTexto = document.getElementById('btn-evaluar-texto');
   const btnSpinner = document.getElementById('btn-evaluar-spinner');
-
-  // Verificamos si el botón existe en la página
   if (btnEvaluar) {
-    // Añadimos un "escuchador" que se activa cuando el usuario hace clic
     btnEvaluar.addEventListener('click', async () => {
       const respuestaAlumno = respuestaAlumnoTextarea.value;
-
-      // Validación simple: no enviar si no hay respuesta
+      const casoActual = casosClinicos[indiceCasoActual];
       if (!respuestaAlumno.trim()) {
         feedbackContainer.innerHTML = `<div class="alert alert-warning">Por favor, escribe tu plan de tratamiento antes de evaluar.</div>`;
         return;
       }
-
-      // 1. Preparamos la interfaz para la carga
       btnTexto.textContent = 'Evaluando...';
-      btnSpinner.classList.remove('d-none'); // Muestra el spinner
+      btnSpinner.classList.remove('d-none');
       btnEvaluar.disabled = true;
-      feedbackContainer.innerHTML = ''; // Limpiamos el feedback anterior
-
+      feedbackContainer.innerHTML = '';
       try {
-        // 2. Llamamos a nuestra función serverless (el "mesero")
         const response = await fetch('/.netlify/functions/evaluar-caso', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ respuestaAlumno: respuestaAlumno }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ respuestaAlumno, casoActual })
         });
-
-        // Si la respuesta del servidor no es exitosa, lanzamos un error
-        if (!response.ok) {
-          throw new Error('Hubo un problema con la respuesta del servidor.');
-        }
-
-        // 3. Obtenemos el feedback de la IA desde la respuesta
+        if (!response.ok) throw new Error('Hubo un problema con la respuesta del servidor.');
         const data = await response.json();
         const feedbackHTML = data.feedback;
-
-        // 4. Mostramos el feedback en un cuadro bonito
         feedbackContainer.innerHTML = `
           <div class="card bg-light mt-3">
             <div class="card-body">
@@ -445,18 +405,201 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         `;
-
       } catch (error) {
-        // 5. Si algo sale mal, mostramos un mensaje de error
         console.error('Error al llamar a la función de IA:', error);
         feedbackContainer.innerHTML = `<div class="alert alert-danger">Lo sentimos, no se pudo obtener el feedback. Por favor, inténtalo de nuevo más tarde.</div>`;
-      
       } finally {
-        // 6. Restauramos el botón a su estado original, tanto si hubo éxito como si hubo error
         btnTexto.textContent = 'Evaluar con IA';
-        btnSpinner.classList.add('d-none'); // Oculta el spinner
+        btnSpinner.classList.add('d-none');
         btnEvaluar.disabled = false;
       }
     });
   }
+
+  // --- LÓGICA PARA NAVEGACIÓN DE CASOS CLÍNICOS DINÁMICOS ---
+  let indiceCasoActual = 0;
+  const tituloEl = document.getElementById('caso-titulo');
+  const categoriaEl = document.getElementById('caso-categoria');
+  const presentacionEl = document.getElementById('caso-presentacion');
+  const evaluacionEl = document.getElementById('caso-evaluacion');
+  const contadorEl = document.getElementById('caso-contador');
+  const btnAnterior = document.getElementById('btn-caso-anterior');
+  const btnSiguiente = document.getElementById('btn-caso-siguiente');
+  function mostrarCaso(indice) {
+    if (typeof casosClinicos === 'undefined' || casosClinicos.length === 0) return;
+    const caso = casosClinicos[indice];
+    tituloEl.textContent = caso.titulo;
+    categoriaEl.textContent = caso.categoria;
+    presentacionEl.textContent = caso.presentacion;
+    evaluacionEl.textContent = caso.evaluacion;
+    contadorEl.textContent = `Caso ${indice + 1} de ${casosClinicos.length}`;
+    document.getElementById('respuesta-alumno').value = '';
+    document.getElementById('feedback-ia-container').innerHTML = '';
+    btnAnterior.disabled = (indice === 0);
+    btnSiguiente.disabled = (indice === casosClinicos.length - 1);
+  }
+  if (tituloEl) {
+    mostrarCaso(indiceCasoActual);
+    btnSiguiente.addEventListener('click', () => {
+      if (indiceCasoActual < casosClinicos.length - 1) {
+        indiceCasoActual++;
+        mostrarCaso(indiceCasoActual);
+      }
+    });
+    btnAnterior.addEventListener('click', () => {
+      if (indiceCasoActual > 0) {
+        indiceCasoActual--;
+        mostrarCaso(indiceCasoActual);
+      }
+    });
+  }
 });
+// ===================================================================
+  // --- INICIALIZACIÓN DE CASOS CLÍNICOS Y LÓGICA DE IA ---
+  // ===================================================================
+  let indiceCasoActual = 0;
+  const tituloEl = document.getElementById('caso-titulo');
+  const categoriaEl = document.getElementById('caso-categoria');
+  const presentacionEl = document.getElementById('caso-presentacion');
+  const evaluacionEl = document.getElementById('caso-evaluacion');
+  const contadorEl = document.getElementById('caso-contador');
+  const btnAnterior = document.getElementById('btn-caso-anterior');
+  const btnSiguiente = document.getElementById('btn-caso-siguiente');
+  const btnEvaluar = document.getElementById('btn-evaluar-ia');
+  const respuestaAlumnoTextarea = document.getElementById('respuesta-alumno');
+  const feedbackContainer = document.getElementById('feedback-ia-container');
+  const btnTexto = document.getElementById('btn-evaluar-texto');
+  const btnSpinner = document.getElementById('btn-evaluar-spinner');
+
+  function mostrarCaso(indice) {
+    if (typeof casosClinicos === 'undefined' || casosClinicos.length === 0) return;
+    const caso = casosClinicos[indice];
+    tituloEl.textContent = caso.titulo;
+    categoriaEl.textContent = caso.categoria;
+    presentacionEl.textContent = caso.presentacion;
+    evaluacionEl.textContent = caso.evaluacion;
+    contadorEl.textContent = `Caso ${indice + 1} de ${casosClinicos.length}`;
+    respuestaAlumnoTextarea.value = '';
+    feedbackContainer.innerHTML = '';
+    btnAnterior.disabled = (indice === 0);
+    btnSiguiente.disabled = (indice === casosClinicos.length - 1);
+  }
+
+  if (tituloEl) {
+    mostrarCaso(indiceCasoActual);
+    btnSiguiente.addEventListener('click', () => {
+      if (indiceCasoActual < casosClinicos.length - 1) {
+        indiceCasoActual++;
+        mostrarCaso(indiceCasoActual);
+      }
+    });
+    btnAnterior.addEventListener('click', () => {
+      if (indiceCasoActual > 0) {
+        indiceCasoActual--;
+        mostrarCaso(indiceCasoActual);
+      }
+    });
+  }
+
+  if (btnEvaluar) {
+    btnEvaluar.addEventListener('click', async () => {
+      const respuestaAlumno = respuestaAlumnoTextarea.value;
+      const casoActual = casosClinicos[indiceCasoActual];
+      if (!respuestaAlumno.trim()) {
+        feedbackContainer.innerHTML = `<div class="alert alert-warning">Por favor, escribe tu plan de tratamiento antes de evaluar.</div>`;
+        return;
+      }
+      btnTexto.textContent = 'Evaluando...';
+      btnSpinner.classList.remove('d-none');
+      btnEvaluar.disabled = true;
+      feedbackContainer.innerHTML = '';
+      try {
+        const response = await fetch('/.netlify/functions/evaluar-caso', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ respuestaAlumno, casoActual }),
+        });
+        if (!response.ok) throw new Error('Respuesta del servidor no fue exitosa.');
+        const data = await response.json();
+        feedbackContainer.innerHTML = `
+          <div class="card bg-light mt-3">
+            <div class="card-body">
+              <h6 class="card-title text-success">Feedback de la IA:</h6>
+              ${data.feedback}
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        console.error('Error al llamar a la función de IA:', error);
+        feedbackContainer.innerHTML = `<div class="alert alert-danger">Lo sentimos, no se pudo obtener el feedback. Inténtalo de nuevo.</div>`;
+      } finally {
+        btnTexto.textContent = 'Evaluar con IA';
+        btnSpinner.classList.add('d-none');
+        btnEvaluar.disabled = false;
+      }
+    });// Dentro del addEventListener('DOMContentLoaded', () => { ... });
+
+  // ===================================================================
+  // --- LÓGICA DE FLASHCARDS ---
+  // ===================================================================
+  const selectorMazo = document.getElementById('selector-mazo');
+  const flashcardContainer = document.getElementById('flashcard-container');
+  const flashcardFront = document.querySelector('.flashcard-front');
+  const flashcardBack = document.querySelector('.flashcard-back');
+  const flashcardContador = document.getElementById('flashcard-contador');
+  const btnFlashcardAnterior = document.getElementById('btn-flashcard-anterior');
+  const btnFlashcardSiguiente = document.getElementById('btn-flashcard-siguiente');
+
+  let mazoActual = '';
+  let indiceTarjetaActual = 0;
+
+  function cargarMazosEnSelector() {
+    if (!selectorMazo || typeof mazosFlashcards === 'undefined') return;
+    for (const key in mazosFlashcards) {
+      const option = document.createElement('option');
+      option.value = key;
+      option.textContent = mazosFlashcards[key].nombre;
+      selectorMazo.appendChild(option);
+    }
+    mazoActual = selectorMazo.value;
+  }
+
+  function mostrarTarjeta(indice) {
+    const tarjetas = mazosFlashcards[mazoActual].tarjetas;
+    if (indice < 0 || indice >= tarjetas.length) return;
+
+    flashcardContainer.classList.remove('is-flipped');
+    
+    setTimeout(() => { // Pequeño delay para que la animación de volteo no se corte
+        flashcardFront.textContent = tarjetas[indice].anverso;
+        flashcardBack.textContent = tarjetas[indice].reverso;
+        flashcardContador.textContent = `${indice + 1} / ${tarjetas.length}`;
+        indiceTarjetaActual = indice;
+
+        btnFlashcardAnterior.disabled = (indice === 0);
+        btnFlashcardSiguiente.disabled = (indice === tarjetas.length - 1);
+    }, 250);
+  }
+
+  if (selectorMazo) {
+    cargarMazosEnSelector();
+    mostrarTarjeta(0);
+
+    selectorMazo.addEventListener('change', (e) => {
+      mazoActual = e.target.value;
+      mostrarTarjeta(0);
+    });
+
+    flashcardContainer.addEventListener('click', () => {
+      flashcardContainer.classList.toggle('is-flipped');
+    });
+
+    btnFlashcardSiguiente.addEventListener('click', () => {
+      mostrarTarjeta(indiceTarjetaActual + 1);
+    });
+
+    btnFlashcardAnterior.addEventListener('click', () => {
+      mostrarTarjeta(indiceTarjetaActual - 1);
+    });
+  }
+}; // Fin del DOMContentLoaded

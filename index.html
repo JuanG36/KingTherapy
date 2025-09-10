@@ -25,6 +25,7 @@
           <li class="nav-item"><a class="nav-link" href="#casos-clinicos">Casos Clínicos</a></li>
           <li class="nav-item"><a class="nav-link" href="#biblioteca">Biblioteca</a></li>
           <li class="nav-item"><a class="nav-link" href="#glosario">Glosario</a></li>
+          <li class="nav-item"><a class="nav-link" href="#flashcards">Flashcards</a></li>
         </ul>
       </div>
     </div>
@@ -33,7 +34,7 @@
   <header class="bg-light text-dark py-5 text-center">
     <div class="container">
       <h1 class="display-4 fw-bold">Bienvenido a KingFisio</h1>
-      <p class="lead">Tu plataforma todo-en-uno para aprender, repasar y dominar la fisioterapia.</p>
+      <p class="lead">Una plataforma para aprender y repasar sobre la fisioterapia</p>
     </div>
   </header>
 
@@ -95,7 +96,16 @@
             </div>
           </div>
         </div>
-
+<div class="col">
+  <div class="card h-100 text-center feature-card">
+    <div class="card-body">
+      <h2 class="display-5">🃏</h2>
+      <h5 class="card-title">Flashcards</h5>
+      <p class="card-text">Memoriza conceptos clave con tarjetas de estudio interactivas.</p>
+      <a href="#flashcards" class="btn btn-outline-primary">Estudiar</a>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   </main>
@@ -103,7 +113,7 @@
   <div id="secciones-contenido">
     <section id="anatomia-3d" class="py-5 bg-light"><div class="container">
     <h2 class="mb-4 text-center">🦴 Anatomía 3D Interactiva</h2>
-    <p class="text-center text-muted mb-5">Explora el cuerpo humano como nunca antes. Rota, haz zoom y selecciona estructuras para aprender sobre ellas.</p>
+    <p class="text-center text-muted mb-5">Explora el cuerpo humano. Rota, haz zoom y selecciona estructuras para aprender sobre ellas aunque de momento en ingles.</p>
 
     <div class="row justify-content-center">
       <div class="col-12">
@@ -119,7 +129,7 @@
   </div> </section>
     <section id="cuestionario" class="py-5"> <div class="container">
     <h2 class="mb-4">📝 Cuestionario</h2>
-    <p class="text-muted">Pon a prueba tus conocimientos en fisioterapia. Responde 30 preguntas.</p>
+    <p class="text-muted">Pon a prueba tus conocimientos. Responde 30 preguntas.</p>
 
     <!-- Botones de nivel -->
     <div class="mb-3">
@@ -132,36 +142,43 @@
     <!-- Contenedor del cuestionario -->
     <div id="quiz-container" class="mt-4"></div>
   </div></section>
-   <section id="casos-clinicos" class="py-5 bg-light">
+  <section id="casos-clinicos" class="py-5 bg-light">
   <div class="container">
-    <h2 class="mb-4 text-center">👨‍⚕️ Casos Clínicos Interactivos</h2>
-    <p class="text-center text-muted mb-5">Lee el caso, escribe tu plan de tratamiento y recibe feedback instantáneo de la IA.</p>
+    <h2 class="mb-4 text-center">👨‍⚕️ Casos Clínicos</h2>
+    <p class="text-center text-muted mb-5">Navega entre los casos, escribe tu plan de tratamiento y recibe feedback.</p>
 
     <div class="row justify-content-center">
       <div class="col-lg-9">
         <div class="card shadow-sm">
-          <div class="card-header bg-primary text-white">
-            <strong>Caso 1:</strong> Futbolista con dolor agudo en el tobillo
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <strong id="caso-titulo">Cargando caso...</strong>
+            <span id="caso-categoria" class="badge bg-light text-primary"></span>
           </div>
           <div class="card-body">
-            <p><strong>Presentación:</strong> Paciente masculino de 24 años, futbolista amateur, acude a consulta refiriendo un traumatismo en el tobillo derecho hace 48 horas durante un partido. Describe un mecanismo de inversión forzada del pie, seguido de un dolor agudo e intenso en la cara lateral del tobillo e incapacidad para continuar jugando.</p>
-            <p><strong>Evaluación:</strong> Edema ++ y equimosis en la región del maléolo peroneo. Dolor a la palpación sobre el ligamento peroneoastragalino anterior (LPAA). Test de cajón anterior de tobillo positivo.</p>
+            <p><strong>Presentación:</strong> <span id="caso-presentacion"></span></p>
+            <p><strong>Evaluación:</strong> <span id="caso-evaluacion"></span></p>
             <hr>
-
+            
             <div class="mb-3">
-              <label for="respuesta-alumno" class="form-label fw-bold">Propón tu plan de tratamiento para la fase aguda:</label>
-              <textarea class="form-control" id="respuesta-alumno" rows="6" placeholder="Ej: 1. Reposo relativo con carga parcial según tolerancia...\n2. Crioterapia intermitente...\n3. Vendaje compresivo para control de edema..."></textarea>
+              <label for="respuesta-alumno" class="form-label fw-bold">Propón tu plan de tratamiento:</label>
+              <textarea class="form-control" id="respuesta-alumno" rows="6" placeholder="Describe tu abordaje basado en la presentación y evaluación..."></textarea>
             </div>
-
-            <button id="btn-evaluar-ia" class="btn btn-success w-100">
+            
+            <button id="btn-evaluar-ia" class="btn btn-success w-100 mb-3">
               <span id="btn-evaluar-texto">Evaluar con IA</span>
               <span id="btn-evaluar-spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
             </button>
 
-            <div id="feedback-ia-container" class="mt-4">
-              </div>
-
+            <div id="feedback-ia-container"></div>
           </div>
+
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-outline-secondary" id="btn-caso-anterior">← Anterior</button>
+            <span id="caso-contador" class="align-self-center text-muted"></span>
+            <button class="btn btn-outline-secondary" id="btn-caso-siguiente">Siguiente →</button>
+          </div>
+<script src="js/casos-clinicos-data.js"></script>
+<script src="js/script.js"></script>
         </div>
       </div>
     </div>
@@ -208,20 +225,56 @@
 
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <dl id="listaGlosario">
-          <div class="row">
-  <div class="col-lg-8 mx-auto">
-    <dl id="listaGlosario">
-      </dl>
-  </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/glosario-data.js"></script> <script src="js/script.js"></script>
-          </dl>
+  <dl id="listaGlosario"></dl>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/glosario-data.js"></script>
+  <script src="js/script.js"></script>
       </div>
     </div>
   </div>
  </section>
+ <section id="flashcards" class="py-5">
+  <div class="container">
+    <h2 class="mb-4 text-center">🃏 Flashcards de Estudio</h2>
+    <p class="text-center text-muted mb-5">Elige un mazo y pon a prueba tu memoria con el método de recuperación activa.</p>
+
+    <!-- Selección de Mazo -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <select class="form-select form-select-lg" id="selector-mazo">
+          <!-- Opciones se cargarán con JS -->
+        </select>
+      </div>
+    </div>
+
+    <!-- Contenedor de la Flashcard -->
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div id="flashcard-container" class="flashcard">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <!-- Contenido del anverso irá aquí -->
+            </div>
+            <div class="flashcard-back">
+              <!-- Contenido del reverso irá aquí -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación de Flashcards -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8 col-lg-6 d-flex justify-content-between align-items-center">
+        <button class="btn btn-outline-secondary" id="btn-flashcard-anterior">← Anterior</button>
+        <span id="flashcard-contador" class="text-muted"></span>
+        <button class="btn btn-outline-secondary" id="btn-flashcard-siguiente">Siguiente →</button>
+        <script src="js/flashcards-data.js"></script>
+<script src="js/script.js"></script>
+      </div>
+    </div>
+  </div>
+</section>
   </div>
 
   <footer class="bg-dark text-white text-center py-4">
