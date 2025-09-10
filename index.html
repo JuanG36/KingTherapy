@@ -234,46 +234,34 @@
   </div>
  </section>
  <section id="flashcards" class="py-5">
-  <div class="container">
-    <h2 class="mb-4 text-center">🃏 Flashcards de Estudio</h2>
-    <p class="text-center text-muted mb-5">Elige un mazo y pon a prueba tu memoria con el método de recuperación activa.</p>
-
-    <!-- Selección de Mazo -->
-    <div class="row justify-content-center mb-4">
-      <div class="col-md-6">
-        <select class="form-select form-select-lg" id="selector-mazo">
-          <!-- Opciones se cargarán con JS -->
-        </select>
-      </div>
-    </div>
-
-    <!-- Contenedor de la Flashcard -->
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div id="flashcard-container" class="flashcard">
-          <div class="flashcard-inner">
-            <div class="flashcard-front">
-              <!-- Contenido del anverso irá aquí -->
-            </div>
-            <div class="flashcard-back">
-              <!-- Contenido del reverso irá aquí -->
+      <div class="container">
+        <h2 class="mb-4 text-center">🃏 Flashcards de Estudio</h2>
+        <p class="text-center text-muted mb-5">Elige un mazo y pon a prueba tu memoria con el método de recuperación activa.</p>
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-6">
+            <select class="form-select form-select-lg" id="selector-mazo"></select>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6">
+            <div id="flashcard-container" class="flashcard">
+              <div class="flashcard-inner">
+                <div class="flashcard-front"></div>
+                <div class="flashcard-back"></div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-md-8 col-lg-6 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-secondary" id="btn-flashcard-anterior">← Anterior</button>
+            <span id="flashcard-contador" class="text-muted"></span>
+            <button class="btn btn-outline-secondary" id="btn-flashcard-siguiente">Siguiente →</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Navegación de Flashcards -->
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-8 col-lg-6 d-flex justify-content-between align-items-center">
-        <button class="btn btn-outline-secondary" id="btn-flashcard-anterior">← Anterior</button>
-        <span id="flashcard-contador" class="text-muted"></span>
-        <button class="btn btn-outline-secondary" id="btn-flashcard-siguiente">Siguiente →</button>
-        
-      </div>
-    </div>
-  </div>
-</section>
   </div>
 
   <footer class="bg-dark text-white text-center py-4">
@@ -284,10 +272,12 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/glosario-data.js"></script>
-<script src="js/casos-clinicos-data.js"></script>
-<script src="js/flashcards-data.js"></script>
+  
+  <script src="js/glosario-data.js"></script>
+  <script src="js/casos-clinicos-data.js"></script>
+  <script src="js/flashcards-data.js"></script>
+  
+  <script src="js/script.js"></script>
 
-<script src="js/script.js"></script>
 </body>
 </html>
